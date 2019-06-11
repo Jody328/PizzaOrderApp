@@ -81,7 +81,6 @@
             this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.order_SystemsTableAdapter = new PizzaOrderApp.LoginDBDataSetTableAdapters.Order_SystemsTableAdapter();
             this.tableAdapterManager = new PizzaOrderApp.LoginDBDataSetTableAdapters.TableAdapterManager();
-            this.order_ItemsTableAdapter = new PizzaOrderApp.LoginDBDataSetTableAdapters.Order_ItemsTableAdapter();
             this.productsTableAdapter = new PizzaOrderApp.LoginDBDataSetTableAdapters.ProductsTableAdapter();
             this.order_SystemsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -363,6 +362,7 @@
             // 
             // pizzaList
             // 
+            this.pizzaList.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pizzaList.FormattingEnabled = true;
             this.pizzaList.ItemHeight = 16;
             this.pizzaList.Location = new System.Drawing.Point(11, 74);
@@ -372,7 +372,7 @@
             // 
             // basketTotal
             // 
-            this.basketTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.basketTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.basketTotal.Location = new System.Drawing.Point(699, 192);
             this.basketTotal.Name = "basketTotal";
             this.basketTotal.Size = new System.Drawing.Size(184, 30);
@@ -620,15 +620,10 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Order_ItemsTableAdapter = null;
             this.tableAdapterManager.Order_SystemsTableAdapter = this.order_SystemsTableAdapter;
             this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.tbl_LoginTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PizzaOrderApp.LoginDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // order_ItemsTableAdapter
-            // 
-            this.order_ItemsTableAdapter.ClearBeforeFill = true;
             // 
             // productsTableAdapter
             // 
@@ -741,7 +736,7 @@
             this.Receipt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.order_ItemsBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.order_ItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_SystemsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -780,7 +775,7 @@
         private System.Windows.Forms.TextBox table_NoTextBox;
         private System.Windows.Forms.TextBox net_TotalTextBox;
         private System.Windows.Forms.BindingSource order_ItemsBindingSource;
-        private LoginDBDataSetTableAdapters.Order_ItemsTableAdapter order_ItemsTableAdapter;
+//        private LoginDBDataSetTableAdapters.Order_ItemsTableAdapter order_ItemsTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private System.Windows.Forms.BindingSource productsBindingSource1;
         private LoginDBDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;

@@ -77,14 +77,6 @@ namespace PizzaOrderApp
         }
         protected virtual void OnLoad()
         {
-            // TODO: This line of code loads data into the 'loginDBDataSet.Products' table. You can move, or remove it, as needed.
-            this.productsTableAdapter.Fill(this.loginDBDataSet.Products);
-            // TODO: This line of code loads data into the 'loginDBDataSet.Order_Items' table. You can move, or remove it, as needed.
-            this.order_ItemsTableAdapter.Fill(this.loginDBDataSet.Order_Items);
-            // TODO: This line of code loads data into the 'loginDBDataSet.Order_Systems' table. You can move, or remove it, as needed.
-            this.order_SystemsTableAdapter.Fill(this.loginDBDataSet.Order_Systems);
-
-            
 
             // Set default value
             qtyTextBox.Text = "0";
@@ -94,6 +86,15 @@ namespace PizzaOrderApp
             basketTotal.Text = "0";
             taxTextBox.Text = "15%";
             phone_NumberTextBox.Text = "";
+            net_TotalTextBox.Text = "0";
+            sub_TotalTextBox.ReadOnly = true;
+            basketTotal.ReadOnly=true;
+            taxTextBox.ReadOnly = true;
+            net_TotalTextBox.ReadOnly = true;
+            basket_Summary.ReadOnly = true;
+            txtReceipt.ReadOnly = true;
+            txtReceipt.BackColor = System.Drawing.SystemColors.Window;
+            order_SystemsDataGridView.ReadOnly = true;
 
             // Load data in listbox
             pizzaList.DataSource = GetData();
@@ -135,9 +136,12 @@ namespace PizzaOrderApp
             // Open tab on click
             tabControl1.SelectedTab = Receipt;
 
+            // View scrollbar
+            txtReceipt.ScrollBars = ScrollBars.Vertical;
+
             // Display Receipt
             txtReceipt.AppendText("\t\t" + "       PIZZA HUB");
-            txtReceipt.AppendText("\t\t\t" + "=================================================" + Environment.NewLine);
+            txtReceipt.AppendText("\t\t\t" + "==============================================" + Environment.NewLine);
             txtReceipt.AppendText(" " + Environment.NewLine);
 
             txtReceipt.AppendText("Name:" + "\t" + customer_NameTextBox.Text + "\t" + "Phone No: " + phone_NumberTextBox.Text + Environment.NewLine);
@@ -152,7 +156,7 @@ namespace PizzaOrderApp
             txtReceipt.AppendText(Environment.NewLine + "\t" + "Tax on Order:" + "\t" + taxTextBox.Text + Environment.NewLine);
             txtReceipt.AppendText(Environment.NewLine + "\t" + "Net Total:     " + "\t" + "R" + net_TotalTextBox.Text + Environment.NewLine);
 
-            txtReceipt.AppendText("\t\t\t" + "=================================================" + Environment.NewLine);
+            txtReceipt.AppendText("\t\t\t" + "==============================================" + Environment.NewLine);
             txtReceipt.AppendText("\t\t" + "       RECEIPT" + Environment.NewLine);
         }
         protected virtual void OnSave()
@@ -223,7 +227,7 @@ namespace PizzaOrderApp
 
                 item_PriceTextBox.Text = String.Format("{0:0.00}", Double.Parse(item_PriceTextBox.Text));
                 sub_TotalTextBox.Text = String.Format("{0:0.00}", Double.Parse(sub_TotalTextBox.Text));
-                net_TotalTextBox.Text = String.Format("{0:0.00}", Double.Parse(net_TotalTextBox.Text));
+                net_TotalTextBox.Text = "R" + String.Format("{0:0.00}", Double.Parse(net_TotalTextBox.Text));
                 basketTotal.Text = "R" + String.Format("{0:0.00}", Double.Parse(basketTotal.Text));
 
                 taxTextBox.Text = "15%";
