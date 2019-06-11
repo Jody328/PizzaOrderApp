@@ -1,0 +1,13 @@
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\bin\Debug\LoginDB.mdf
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\bin\Debug\LoginDB_log.ldf
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\bin\Debug\PizzaOrderApp.exe.config
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\bin\Debug\PizzaOrderApp.exe
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\bin\Debug\PizzaOrderApp.pdb
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.csprojAssemblyReference.cache
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.frmLogin.resources
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.frmMain.resources
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.Properties.Resources.resources
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.csproj.GenerateResource.cache
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.exe
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.pdb
