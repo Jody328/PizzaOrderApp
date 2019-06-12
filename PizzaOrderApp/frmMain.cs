@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace PizzaOrderApp
 {
@@ -161,27 +162,9 @@ namespace PizzaOrderApp
         }
         protected virtual void OnSave()
         {
-            //// Check if customer details are empty
-            //if (customer_NameTextBox.Text == "")
-            //{
-            //    MessageBox.Show("Please enter customer name");
-            //}
-            //else if (phone_NumberTextBox.Text == "")
-            //{
-            //    MessageBox.Show("Please enter customer phone number");
-            //}
-            //else if (table_NoTextBox.Text == "")
-            //{
-            //    MessageBox.Show("Please enter table number");
-            //}
-            //else
-            //{
-            //    SaveData();
-            //}
 
             validateInputs(customer_NameTextBox.Text, phone_NumberTextBox.Text, table_NoTextBox.Text);
             SaveData();
-
 
         }
         protected virtual void validateInputs (string name, string number, string table)
@@ -198,6 +181,13 @@ namespace PizzaOrderApp
             {
                 throw new Exception ("Please enter table number");
             }
+        }
+        protected virtual void validateNum(string num)
+        {
+                if (!Regex.IsMatch(num, @"^\d+$"))
+                {
+                    throw new Exception("Incorrect input. Field may not contain letters");
+                } 
         }
         protected virtual void Calculation()
         {
@@ -276,28 +266,11 @@ namespace PizzaOrderApp
         {
             try
             {
-
-                //if (customer_NameTextBox.Text == "")
-                //{
-                //    throw new Exception("Please enter customer name");
-                //}
-                //else if (phone_NumberTextBox.Text == "")
-                //{
-                //    throw new Exception("Please enter customer phone number");
-                //}
-                //else if (table_NoTextBox.Text == "")
-                //{
-                //    throw new Exception("Please enter table number");
-                //}
-                //else
-                //{
-                //    SaveData();
-                //}
                 validateInputs(customer_NameTextBox.Text, phone_NumberTextBox.Text, table_NoTextBox.Text);
                 SaveData();
                 
                 Calculation();
-                MessageBox.Show("Your Total is: R" + net_TotalTextBox.Text);
+                MessageBox.Show("Your Total is: " + net_TotalTextBox.Text);
 
             }
             catch (Exception e)
@@ -332,10 +305,6 @@ namespace PizzaOrderApp
         {
             ValidateData();
         }
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void BtnReset_Click(object sender, EventArgs e)
         {
 
@@ -364,11 +333,33 @@ namespace PizzaOrderApp
         }
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            Calculation();
+            try
+            {
+
+                validateNum(qtyTextBox.Text);
+                validateNum(item_PriceTextBox.Text);
+                Calculation();
+            }
+            catch (Exception ex)
+
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            AddData();
+            try
+            {
+
+                validateNum(qtyTextBox.Text);
+                validateNum(item_PriceTextBox.Text);
+                AddData();
+            }
+            catch (Exception ex)
+
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void Lbl_Search_TextChanged(object sender, EventArgs e)
         {
