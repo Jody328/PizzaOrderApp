@@ -3,6 +3,9 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.IO;
+using System.Reflection;
 
 namespace PizzaOrderApp
 {
@@ -186,7 +189,7 @@ namespace PizzaOrderApp
         {
                 if (!Regex.IsMatch(num, @"^\d+$"))
                 {
-                    throw new Exception("Incorrect input. Field may not contain letters");
+                    throw new Exception("Incorrect input. Quantity or item price fields may not contain letters");
                 } 
         }
         protected virtual void Calculation()
@@ -280,10 +283,6 @@ namespace PizzaOrderApp
             }
 
         }
-        protected virtual void UpdateSystem()
-        {
-            MessageBox.Show("System already up to date");
-        }
         protected virtual void ViewData()
         {
             con.Open();
@@ -293,6 +292,24 @@ namespace PizzaOrderApp
             SDA.Fill(dt);
             order_SystemsDataGridView.DataSource = dt;
             con.Close();
+        }
+        protected virtual void CheckForUpdate()
+        {
+            WebRequest wr = WebRequest.Create(new Uri("https://www.dropbox.com/s/ij6ebeuru5eqt34/Version.txt?dl=0"));
+            WebResponse ws = wr.GetResponse();
+            StreamReader sr = new StreamReader(ws.GetResponseStream());
+            string CurrentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string NewVersion = sr.ReadToEnd();
+
+            if (CurrentVersion.Contains(NewVersion))
+            {
+                MessageBox.Show("Already up to date");
+            } else
+            {
+                MessageBox.Show(CurrentVersion);
+                Updater objFrmUpdate = new Updater();
+                objFrmUpdate.Show();
+            }
         }
 
         //Events
@@ -369,13 +386,24 @@ namespace PizzaOrderApp
         {
             Application.Exit();
         }
-        private void Button3_Click(object sender, EventArgs e)
+        private void BtnCheckout_Click(object sender, EventArgs e)
         {
-            TotalPopup();
+            try
+            {
+
+                validateNum(qtyTextBox.Text);
+                validateNum(item_PriceTextBox.Text);
+                TotalPopup();
+            }
+            catch (Exception ex)
+
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateSystem();
+            CheckForUpdate();
         }
         private void BtnView_Click(object sender, EventArgs e)
         {

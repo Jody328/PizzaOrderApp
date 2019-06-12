@@ -11,3 +11,4 @@ C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.cspr
 C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.exe
 C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.pdb
+C:\Users\ASUS\Documents\PizzaOrderApp\PizzaOrderApp\obj\Debug\PizzaOrderApp.Updater.resources

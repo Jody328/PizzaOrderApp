@@ -52,7 +52,7 @@
             this.qtyTextBox = new System.Windows.Forms.TextBox();
             this.item_PriceTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
             this.pizzaList = new System.Windows.Forms.ListBox();
             this.basketTotal = new System.Windows.Forms.TextBox();
             this.basket_Summary = new System.Windows.Forms.TextBox();
@@ -78,7 +78,6 @@
             this.txtReceipt = new System.Windows.Forms.TextBox();
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.order_SystemsTableAdapter = new PizzaOrderApp.LoginDBDataSetTableAdapters.Order_SystemsTableAdapter();
             this.tableAdapterManager = new PizzaOrderApp.LoginDBDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new PizzaOrderApp.LoginDBDataSetTableAdapters.ProductsTableAdapter();
@@ -100,7 +99,6 @@
             this.Receipt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.order_ItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_SystemsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -293,7 +291,7 @@
             this.groupBox2.Controls.Add(this.qtyTextBox);
             this.groupBox2.Controls.Add(this.item_PriceTextBox);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnCheckout);
             this.groupBox2.Controls.Add(this.pizzaList);
             this.groupBox2.Controls.Add(this.basketTotal);
             this.groupBox2.Controls.Add(this.basket_Summary);
@@ -348,17 +346,17 @@
             this.label13.TabIndex = 30;
             this.label13.Text = "Find:";
             // 
-            // button3
+            // btnCheckout
             // 
-            this.button3.BackColor = System.Drawing.Color.LimeGreen;
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(699, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(184, 34);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Checkout";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.btnCheckout.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnCheckout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCheckout.Location = new System.Drawing.Point(699, 240);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(184, 34);
+            this.btnCheckout.TabIndex = 20;
+            this.btnCheckout.Text = "Checkout";
+            this.btnCheckout.UseVisualStyleBackColor = false;
+            this.btnCheckout.Click += new System.EventHandler(this.BtnCheckout_Click);
             // 
             // pizzaList
             // 
@@ -608,10 +606,7 @@
             this.productsBindingSource.DataSource = this.loginDBDataSet;
             this.productsBindingSource.Position = 0;
             // 
-            // order_ItemsBindingSource
             // 
-            this.order_ItemsBindingSource.DataMember = "Order_Items";
-            this.order_ItemsBindingSource.DataSource = this.loginDBDataSet;
             // 
             // order_SystemsTableAdapter
             // 
@@ -736,7 +731,6 @@
             this.Receipt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.order_ItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_SystemsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -760,7 +754,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -774,8 +768,6 @@
         private System.Windows.Forms.TextBox phone_NumberTextBox;
         private System.Windows.Forms.TextBox table_NoTextBox;
         private System.Windows.Forms.TextBox net_TotalTextBox;
-        private System.Windows.Forms.BindingSource order_ItemsBindingSource;
-//        private LoginDBDataSetTableAdapters.Order_ItemsTableAdapter order_ItemsTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private System.Windows.Forms.BindingSource productsBindingSource1;
         private LoginDBDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
